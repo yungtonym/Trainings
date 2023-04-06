@@ -6,6 +6,8 @@
 #include "QSqlDatabase"
 #include "QDebug"
 #include "QSqlQuery"
+#include <QDir>
+#include <QStandardPaths>
 
 int w = 200;
 int h = 200;

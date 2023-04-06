@@ -3,6 +3,8 @@
 #include "ui_mainwindow.h"
 #include "QPixmap"
 #include "QSqlDatabase"
+#include <QDir>
+#include <QStandardPaths>
 
 QString p;
 
@@ -17,7 +19,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(createPlanWindow, &CreatePlanWindow::firstWindow, this, &MainWindow::show);
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     QSqlQuery query;
-    db.setDatabaseName("./database/programs.db");
+    QString dbPath = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("programs.db");
+    QFile::copy("/database/programs.db", dbPath);
+    qDebug() << dbPath;
+    db.setDatabaseName(dbPath);
     if (db.open())
     {
         qDebug("open");
