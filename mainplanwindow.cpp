@@ -19,6 +19,7 @@ extern QString path[25];
 QString loc_name;
 QString loc_program;
 QString temp;
+int loc_days;
 
 void createDataBase()
 {
@@ -165,61 +166,123 @@ void MainPlanWindow::on_friday_1_clicked()
 
 void MainPlanWindow::on_saturday_1_clicked()
 {
-    Exercise ex1(exers[15], duration[15], path[15]);
-    Exercise ex2(exers[16], duration[16], path[16]);
-    Exercise ex3(exers[17], duration[17], path[17]);
-    Exercise ex4(exers[18], duration[18], path[18]);
-    Exercise ex5(exers[19], duration[19], path[19]);
-    QPixmap pix1(ex1.path);
-    QPixmap pix2(ex2.path);
-    QPixmap pix3(ex3.path);
-    QPixmap pix4(ex4.path);
-    QPixmap pix5(ex5.path);
-    ui->first_ex_img->setPixmap(pix1.scaled(w, h, Qt::KeepAspectRatio));
-    ui->first_ex_title->setText(ex1.nameOfEx);
-    ui->first_ex_time->setText(ex1.time);
-    ui->second_ex_img->setPixmap(pix2.scaled(w, h, Qt::KeepAspectRatio));
-    ui->second_ex_title->setText(ex2.nameOfEx);
-    ui->second_ex_time->setText(ex2.time);
-    ui->third_ex_img->setPixmap(pix3.scaled(w, h, Qt::KeepAspectRatio));
-    ui->third_ex_title->setText(ex3.nameOfEx);
-    ui->third_ex_time->setText(ex3.time);
-    ui->fourth_ex_img->setPixmap(pix4.scaled(w, h, Qt::KeepAspectRatio));
-    ui->fourth_ex_title->setText(ex4.nameOfEx);
-    ui->fourth_ex_time->setText(ex4.time);
-    ui->fifth_ex_img->setPixmap(pix5.scaled(w, h, Qt::KeepAspectRatio));
-    ui->fifth_ex_title->setText(ex5.nameOfEx);
-    ui->fifth_ex_time->setText(ex5.time);
+    if (loc_days < 5)
+    {
+        Exercise ex1("", "", "E:/TrainImg/empty.png");
+        Exercise ex2("", "", "E:/TrainImg/empty.png");
+        Exercise ex3("День отдыха", "", "E:/TrainImg/empty.png");
+        Exercise ex4("", "", "E:/TrainImg/empty.png");
+        Exercise ex5("", "", "E:/TrainImg/empty.png");
+        QPixmap pix1(ex1.path);
+        QPixmap pix2(ex2.path);
+        QPixmap pix3(ex3.path);
+        QPixmap pix4(ex4.path);
+        QPixmap pix5(ex5.path);
+        ui->first_ex_img->setPixmap(pix1);
+        ui->first_ex_title->setText(ex1.nameOfEx);
+        ui->first_ex_time->setText(ex1.time);
+        ui->second_ex_img->setPixmap(pix2);
+        ui->second_ex_title->setText(ex2.nameOfEx);
+        ui->second_ex_time->setText(ex2.time);
+        ui->third_ex_img->setPixmap(pix3);
+        ui->third_ex_title->setText(ex3.nameOfEx);
+        ui->third_ex_time->setText(ex3.time);
+        ui->fourth_ex_img->setPixmap(pix4);
+        ui->fourth_ex_title->setText(ex4.nameOfEx);
+        ui->fourth_ex_time->setText(ex4.time);
+        ui->fifth_ex_img->setPixmap(pix5);
+        ui->fifth_ex_title->setText(ex5.nameOfEx);
+        ui->fifth_ex_time->setText(ex5.time);
+    }
+    else
+    {
+        Exercise ex1(exers[15], duration[15], path[15]);
+        Exercise ex2(exers[16], duration[16], path[16]);
+        Exercise ex3(exers[17], duration[17], path[17]);
+        Exercise ex4(exers[18], duration[18], path[18]);
+        Exercise ex5(exers[19], duration[19], path[19]);
+        QPixmap pix1(ex1.path);
+        QPixmap pix2(ex2.path);
+        QPixmap pix3(ex3.path);
+        QPixmap pix4(ex4.path);
+        QPixmap pix5(ex5.path);
+        ui->first_ex_img->setPixmap(pix1.scaled(w, h, Qt::KeepAspectRatio));
+        ui->first_ex_title->setText(ex1.nameOfEx);
+        ui->first_ex_time->setText(ex1.time);
+        ui->second_ex_img->setPixmap(pix2.scaled(w, h, Qt::KeepAspectRatio));
+        ui->second_ex_title->setText(ex2.nameOfEx);
+        ui->second_ex_time->setText(ex2.time);
+        ui->third_ex_img->setPixmap(pix3.scaled(w, h, Qt::KeepAspectRatio));
+        ui->third_ex_title->setText(ex3.nameOfEx);
+        ui->third_ex_time->setText(ex3.time);
+        ui->fourth_ex_img->setPixmap(pix4.scaled(w, h, Qt::KeepAspectRatio));
+        ui->fourth_ex_title->setText(ex4.nameOfEx);
+        ui->fourth_ex_time->setText(ex4.time);
+        ui->fifth_ex_img->setPixmap(pix5.scaled(w, h, Qt::KeepAspectRatio));
+        ui->fifth_ex_title->setText(ex5.nameOfEx);
+        ui->fifth_ex_time->setText(ex5.time);
+    }
 }
 
 
 void MainPlanWindow::on_sunday_1_clicked()
 {
-    Exercise ex1(exers[20], duration[20], path[20]);
-    Exercise ex2(exers[21], duration[21], path[21]);
-    Exercise ex3(exers[22], duration[22], path[22]);
-    Exercise ex4(exers[23], duration[23], path[23]);
-    Exercise ex5(exers[24], duration[24], path[24]);
-    QPixmap pix1(ex1.path);
-    QPixmap pix2(ex2.path);
-    QPixmap pix3(ex3.path);
-    QPixmap pix4(ex4.path);
-    QPixmap pix5(ex5.path);
-    ui->first_ex_img->setPixmap(pix1.scaled(w, h, Qt::KeepAspectRatio));
-    ui->first_ex_title->setText(ex1.nameOfEx);
-    ui->first_ex_time->setText(ex1.time);
-    ui->second_ex_img->setPixmap(pix2.scaled(w, h, Qt::KeepAspectRatio));
-    ui->second_ex_title->setText(ex2.nameOfEx);
-    ui->second_ex_time->setText(ex2.time);
-    ui->third_ex_img->setPixmap(pix3.scaled(w, h, Qt::KeepAspectRatio));
-    ui->third_ex_title->setText(ex3.nameOfEx);
-    ui->third_ex_time->setText(ex3.time);
-    ui->fourth_ex_img->setPixmap(pix4.scaled(w, h, Qt::KeepAspectRatio));
-    ui->fourth_ex_title->setText(ex4.nameOfEx);
-    ui->fourth_ex_time->setText(ex4.time);
-    ui->fifth_ex_img->setPixmap(pix5.scaled(w, h, Qt::KeepAspectRatio));
-    ui->fifth_ex_title->setText(ex5.nameOfEx);
-    ui->fifth_ex_time->setText(ex5.time);
+    if (loc_days < 4)
+    {
+        Exercise ex1("", "", "E:/TrainImg/empty.png");
+        Exercise ex2("", "", "E:/TrainImg/empty.png");
+        Exercise ex3("День отдыха", "", "E:/TrainImg/empty.png");
+        Exercise ex4("", "", "E:/TrainImg/empty.png");
+        Exercise ex5("", "", "E:/TrainImg/empty.png");
+        QPixmap pix1(ex1.path);
+        QPixmap pix2(ex2.path);
+        QPixmap pix3(ex3.path);
+        QPixmap pix4(ex4.path);
+        QPixmap pix5(ex5.path);
+        ui->first_ex_img->setPixmap(pix1);
+        ui->first_ex_title->setText(ex1.nameOfEx);
+        ui->first_ex_time->setText(ex1.time);
+        ui->second_ex_img->setPixmap(pix2);
+        ui->second_ex_title->setText(ex2.nameOfEx);
+        ui->second_ex_time->setText(ex2.time);
+        ui->third_ex_img->setPixmap(pix3);
+        ui->third_ex_title->setText(ex3.nameOfEx);
+        ui->third_ex_time->setText(ex3.time);
+        ui->fourth_ex_img->setPixmap(pix4);
+        ui->fourth_ex_title->setText(ex4.nameOfEx);
+        ui->fourth_ex_time->setText(ex4.time);
+        ui->fifth_ex_img->setPixmap(pix5);
+        ui->fifth_ex_title->setText(ex5.nameOfEx);
+        ui->fifth_ex_time->setText(ex5.time);
+    }
+    else
+    {
+        Exercise ex1(exers[20], duration[20], path[20]);
+        Exercise ex2(exers[21], duration[21], path[21]);
+        Exercise ex3(exers[22], duration[22], path[22]);
+        Exercise ex4(exers[23], duration[23], path[23]);
+        Exercise ex5(exers[24], duration[24], path[24]);
+        QPixmap pix1(ex1.path);
+        QPixmap pix2(ex2.path);
+        QPixmap pix3(ex3.path);
+        QPixmap pix4(ex4.path);
+        QPixmap pix5(ex5.path);
+        ui->first_ex_img->setPixmap(pix1.scaled(w, h, Qt::KeepAspectRatio));
+        ui->first_ex_title->setText(ex1.nameOfEx);
+        ui->first_ex_time->setText(ex1.time);
+        ui->second_ex_img->setPixmap(pix2.scaled(w, h, Qt::KeepAspectRatio));
+        ui->second_ex_title->setText(ex2.nameOfEx);
+        ui->second_ex_time->setText(ex2.time);
+        ui->third_ex_img->setPixmap(pix3.scaled(w, h, Qt::KeepAspectRatio));
+        ui->third_ex_title->setText(ex3.nameOfEx);
+        ui->third_ex_time->setText(ex3.time);
+        ui->fourth_ex_img->setPixmap(pix4.scaled(w, h, Qt::KeepAspectRatio));
+        ui->fourth_ex_title->setText(ex4.nameOfEx);
+        ui->fourth_ex_time->setText(ex4.time);
+        ui->fifth_ex_img->setPixmap(pix5.scaled(w, h, Qt::KeepAspectRatio));
+        ui->fifth_ex_title->setText(ex5.nameOfEx);
+        ui->fifth_ex_time->setText(ex5.time);
+    }
 }
 
 void MainPlanWindow::get_name_slot(QString a)
@@ -233,6 +296,11 @@ void MainPlanWindow::get_program_slot(QString a)
     loc_program = a;
     qDebug() << a;
     createDataBase();
+}
+
+void MainPlanWindow::get_days_slot(int a)
+{
+    loc_days = a;
 }
 
 

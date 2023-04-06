@@ -6,6 +6,7 @@
 
 QString name;
 QString program;
+int days;
 
 void createDB()
 {
@@ -15,9 +16,10 @@ void createDB()
     if (db.open())
     {
         qDebug("open");
-        query.prepare("INSERT INTO users (name, program) VALUES (?, ?)");
+        query.prepare("INSERT INTO users (name, program, days) VALUES (?, ?, ?)");
         query.addBindValue(name);
         query.addBindValue(program);
+        query.addBindValue(days);
         query.exec();
     } else
     {
@@ -51,136 +53,163 @@ void CreatePlanWindow::on_create_button_clicked()
     if (ui->goal_menu->currentIndex() == 0 && ui->physical_level->currentIndex() == 0 && ui->number_of_trainings->currentIndex() == 2)
     {
         program = "program5_beg_light";
+        days = 5;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 0 && ui->physical_level->currentIndex() == 1 && ui->number_of_trainings->currentIndex() == 2)
     {
         program = "program5_mid_light";
+        days = 5;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 0 && ui->physical_level->currentIndex() == 2 && ui->number_of_trainings->currentIndex() == 2)
     {
         program = "program5_pro_light";
+        days = 5;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 0 && ui->physical_level->currentIndex() == 0 && ui->number_of_trainings->currentIndex() == 0)
     {
-        program = "program3_beg_light";
+        program = "program5_beg_light";
+        days = 3;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 0 && ui->physical_level->currentIndex() == 0 && ui->number_of_trainings->currentIndex() == 1)
     {
-        program = "program4_beg_light";
+        program = "program5_beg_light";
+        days = 4;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 0 && ui->physical_level->currentIndex() == 1 && ui->number_of_trainings->currentIndex() == 0)
     {
-        program = "program3_mid_light";
+        program = "program5_mid_light";
+        days = 3;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 0 && ui->physical_level->currentIndex() == 2 && ui->number_of_trainings->currentIndex() == 0)
     {
-        program = "program3_pro_light";
+        program = "program5_pro_light";
+        days = 3;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 1 && ui->physical_level->currentIndex() == 0 && ui->number_of_trainings->currentIndex() == 0)
     {
-        program = "program3_beg_mid";
+        program = "program5_beg_mid";
+        days = 3;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 0 && ui->physical_level->currentIndex() == 1 && ui->number_of_trainings->currentIndex() == 1)
     {
-        program = "program4_mid_light";
+        program = "program5_mid_light";
+        days = 4;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 0 && ui->physical_level->currentIndex() == 2 && ui->number_of_trainings->currentIndex() == 1)
     {
-        program = "program4_pro_light";
+        program = "program5_pro_light";
+        days = 4;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 1 && ui->physical_level->currentIndex() == 0 && ui->number_of_trainings->currentIndex() == 1)
     {
-        program = "program4_beg_mid";
+        program = "program5_beg_mid";
+        days = 4;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 1 && ui->physical_level->currentIndex() == 0 && ui->number_of_trainings->currentIndex() == 2)
     {
         program = "program5_beg_mid";
+        days = 4;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 1 && ui->physical_level->currentIndex() == 1 && ui->number_of_trainings->currentIndex() == 0)
     {
-        program = "program3_mid_mid";
+        program = "program5_mid_mid";
+        days = 3;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 1 && ui->physical_level->currentIndex() == 1 && ui->number_of_trainings->currentIndex() == 1)
     {
-        program = "program4_mid_mid";
+        program = "program5_mid_mid";
+        days = 4;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 1 && ui->physical_level->currentIndex() == 1 && ui->number_of_trainings->currentIndex() == 2)
     {
         program = "program5_mid_mid";
+        days = 5;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 1 && ui->physical_level->currentIndex() == 2 && ui->number_of_trainings->currentIndex() == 0)
     {
-        program = "program3_pro_mid";
+        program = "program5_pro_mid";
+        days = 3;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 1 && ui->physical_level->currentIndex() == 2 && ui->number_of_trainings->currentIndex() == 1)
     {
-        program = "program4_pro_mid";
+        program = "program5_pro_mid";
+        days = 5;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 1 && ui->physical_level->currentIndex() == 2 && ui->number_of_trainings->currentIndex() == 2)
     {
         program = "program5_pro_mid";
+        days = 5;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 2 && ui->physical_level->currentIndex() == 0 && ui->number_of_trainings->currentIndex() == 0)
     {
-        program = "program3_beg_rare";
+        program = "program5_beg_rare";
+        days = 3;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 2 && ui->physical_level->currentIndex() == 0 && ui->number_of_trainings->currentIndex() == 1)
     {
-        program = "program4_beg_rare";
+        program = "program5_beg_rare";
+        days = 4;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 2 && ui->physical_level->currentIndex() == 0 && ui->number_of_trainings->currentIndex() == 2)
     {
         program = "program5_beg_rare";
+        days = 5;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 2 && ui->physical_level->currentIndex() == 1 && ui->number_of_trainings->currentIndex() == 0)
     {
-        program = "program3_mid_rare";
+        program = "program5_mid_rare";
+        days = 3;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 2 && ui->physical_level->currentIndex() == 1 && ui->number_of_trainings->currentIndex() == 1)
     {
-        program = "program4_mid_rare";
+        program = "program5_mid_rare";
+        days = 4;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 2 && ui->physical_level->currentIndex() == 1 && ui->number_of_trainings->currentIndex() == 2)
     {
         program = "program5_mid_rare";
+        days = 5;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 2 && ui->physical_level->currentIndex() == 2 && ui->number_of_trainings->currentIndex() == 0)
     {
-        program = "program3_pro_rare";
+        program = "program5_pro_rare";
+        days = 3;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 2 && ui->physical_level->currentIndex() == 2 && ui->number_of_trainings->currentIndex() == 1)
     {
-        program = "program4_pro_rare";
+        program = "program5_pro_rare";
+        days = 4;
         qDebug() << program;
     }
     else if (ui->goal_menu->currentIndex() == 2 && ui->physical_level->currentIndex() == 2 && ui->number_of_trainings->currentIndex() == 2)
     {
         program = "program5_pro_rare";
+        days = 5;
         qDebug() << program;
     }
     createDB();

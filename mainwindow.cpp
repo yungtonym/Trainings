@@ -7,6 +7,7 @@
 #include <QStandardPaths>
 
 QString p;
+int main_days;
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -57,10 +58,15 @@ void MainWindow::on_load_clicked()
     {
 //        qDebug() << "SELECT program FROM users WHERE name = " << ui->user_menu->currentText();
         QString quer = "SELECT program FROM users WHERE name = '" + ui->user_menu->currentText() + "'";
-//        qDebug() << quer;
+        QString quer2 = "SELECT days FROM users WHERE name = '" + ui->user_menu->currentText() + "'";
+//        qDebug() << quer2;
         query.exec(quer);
         while (query.next()) {
-            p =query.value(0).toString();
+            p = query.value(0).toString();
+        }
+        query.exec(quer2);
+        while (query.next()) {
+            main_days = query.value(0).toInt();
         }
     } else
     {
@@ -70,8 +76,10 @@ void MainWindow::on_load_clicked()
     mainPlanWindow->show();
     connect(this, &MainWindow::give_name, mainPlanWindow, &MainPlanWindow::get_name_slot);
     connect(this, &MainWindow::give_program, mainPlanWindow, &MainPlanWindow::get_program_slot);
+    connect(this, &MainWindow::give_days, mainPlanWindow, &MainPlanWindow::get_days_slot);
     emit give_name(ui->user_menu->currentText());
 //    qDebug() << p;
     emit give_program(p);
+    emit give_days(main_days);
 }
 

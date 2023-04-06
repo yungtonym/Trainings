@@ -35,6 +35,7 @@ private:
 signals:
     void give_name(QString);
     void give_program(QString);
+    void give_days(int);
 };
 
 #endif // MAINWINDOW_H

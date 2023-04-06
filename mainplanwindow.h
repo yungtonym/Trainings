@@ -38,6 +38,7 @@ public slots:
 
     void get_name_slot(QString a);
     void get_program_slot(QString a);
+    void get_days_slot(int a);
 
 private:
     Ui::MainPlanWindow *ui;
