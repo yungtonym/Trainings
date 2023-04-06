@@ -19,10 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(createPlanWindow, &CreatePlanWindow::firstWindow, this, &MainWindow::show);
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     QSqlQuery query;
-    QString dbPath = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("programs.db");
-    QFile::copy("/database/programs.db", dbPath);
-    qDebug() << dbPath;
-    db.setDatabaseName(dbPath);
+    db.setDatabaseName("./database/programs.db");
     if (db.open())
     {
         qDebug("open");

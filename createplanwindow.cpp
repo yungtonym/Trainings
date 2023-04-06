@@ -3,8 +3,6 @@
 #include "QSqlDatabase"
 #include "QSqlQuery"
 #include "QDebug"
-#include <QDir>
-#include <QStandardPaths>
 
 QString name;
 QString program;
